@@ -1,0 +1,12 @@
+{{ block "options" . }}
+{{ range . }}
+<div class="row" id={{ .Id }}>
+	<span class="col text-center">{{ .Name }}</span>
+	<span class="col text-center">{{ .Price }}kr</span>
+	<button class="col text-center" hx-post="/new-item/" hx-target="#list" hx-swap="innerHTML" name="add" value={{ .Id
+		}} type="button">
+		Lägg till
+	</button>
+</div>
+{{ end }}
+{{ end }}
